@@ -1,0 +1,17 @@
+functions:
+	syntax:a) var myFunc = function(param1,param2) {
+			//code goes here
+		}
+		
+		b) function myFunc(param1,param2) {
+			//code goes here
+		}
+myFunc = the name that you made the function
+function = this tells the program that you are making or calling a function 
+param1,param2 = optional parameters that the user inputs
+
+invoke functions:
+	this means calling on the function!
+	example: myFunc();
+		don't always need a parameter :)
+

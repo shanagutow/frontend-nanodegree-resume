@@ -1,0 +1,33 @@
+Returns: this gives back a value. 
+	--> Console.log doesn't give any value back. gives undefined because it doesn't return anything.
+
+.split:
+	syntax:
+	--> var <name> = <stringVariable or something like>.split(param);
+example: var myString = "This is my string!";
+	 var myArray = myString.split(" ");
+--> this should make the string into an array using the .split with the params of spaces to make an array.
+answer: when you try to access myArray this is what you get:
+	["This", "is", "my", "string!"]
+it worked! .split 'returned' an array of strings.
+
+Return Quiz: 
+	--> this will return all the locations of your jobs
+
+function locationizer(work_obj) { //work_obj is the object that holds all the information that would go above the function code
+	var locationArray = []; //create an empty array that you will fill with the locations. this is good to do beacuse you want to keep the 
+				//old information that you gained from each loop
+	
+	for (job in work_obj.jobs) { //goes through each job in the work_obj object
+		
+		var newLocation = work_obj.jobs[job].location;
+				//work_obj --> the work object
+				//.jobs --> jobs array
+				//[job] --> the element for each loop
+				//.location --> using dot-notation to get the information we need
+		locationArray.push(newLocation); // adding the information to the new array
+	}
+
+	return locationArray;
+}
+
