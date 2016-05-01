@@ -126,10 +126,9 @@ function initializeMap() {
 
     // initializes an empty array
     var locations = [];
-    console.log(bio.bioThings[0].contactGeneric.location)
+    console.log(bio.bioThings[0].contactGeneric.location);
     // adds the single location property from bio to the locations array
     locations.push(bio.bioThings[0].contactGeneric.location);
-
 
     // iterates through school locations and appends each location to
     // the locations array. Note that forEach is used for array iteration
@@ -137,6 +136,7 @@ function initializeMap() {
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
 
     education.schools.forEach(function(school){
+      console.log(school.location)
       locations.push(school.location);
     });
 
