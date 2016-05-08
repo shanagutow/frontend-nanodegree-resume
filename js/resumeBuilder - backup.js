@@ -3,7 +3,7 @@ var role = "Front-end Web Something";
 var skills = ["Cool ", "Fun ", "With-it ", "MOM!"];
 
 var bio = {
-
+    "bioThings": [{
         "name": name,
         "role": role,
         "contactGeneric": {
@@ -17,25 +17,24 @@ var bio = {
         "picture": "images/mosh.JPG",
         "message": "Hey!",
         "skills": skills
-
+    }],
 };
 
 
 var displayContacts = function() {
 
 	for (var parts in bio) {
+	    var bioThings = bio[parts][0];
 
-
-	    var formattedName = HTMLheaderName.replace("%data%", bio[parts].name);
+	    var formattedName = HTMLheaderName.replace("%data%", name);
 	    $("#header").prepend(formattedName);
-	    console.log(bio[parts]);
 
-	    var formattedRole = HTMLheaderRole.replace("%data%", bio[parts].role);
+	    var formattedRole = HTMLheaderRole.replace("%data%", role);
 	    $("#header").append(formattedRole);
 
-	    var pic = HTMLbioPic.replace("%data%", bio[parts].picture);
+	    var pic = HTMLbioPic.replace("%data%", bioThings.picture);
 	    $("#topContacts").append(pic);
-	/*  var welcomeMessage = HTMLwelcomeMsg.replace("%data%", bioThings.message);
+	    var welcomeMessage = HTMLwelcomeMsg.replace("%data%", bioThings.message);
 	    $("#topContacts:last").append(welcomeMessage);
 	    var cell = HTMLmobile.replace("%data%", bioThings.contactGeneric.mobile);
 	    $("#topContacts:last").append(cell);
@@ -46,7 +45,7 @@ var displayContacts = function() {
 	    var twitterName = HTMLtwitter.replace("%data%", bioThings.contactGeneric.twitter);
 	    $("#topContacts:last").append(twitterName);
 	    var local = HTMLlocation.replace("%data%", bioThings.contactGeneric.location);
-	    $("#topContacts:last").append(local);*/
+	    $("#topContacts:last").append(local);
 	}
 };
 
@@ -54,13 +53,13 @@ displayContacts();
 
 $("#header").append(HTMLskillsStart);
 
-var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+var formattedSkill = HTMLskills.replace("%data%", bio.bioThings[0].skills[0]);
 $("#skills").append(formattedSkill);
-formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+formattedSkill = HTMLskills.replace("%data%", bio.bioThings[0].skills[1]);
 $("#skills").append(formattedSkill);
-formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+formattedSkill = HTMLskills.replace("%data%", bio.bioThings[0].skills[2]);
 $("#skills").append(formattedSkill);
-formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+formattedSkill = HTMLskills.replace("%data%", bio.bioThings[0].skills[3]);
 $("#skills").append(formattedSkill);
 
 
