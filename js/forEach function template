@@ -1,0 +1,50 @@
+forEach function template
+
+education.display = function() {
+    var formals = education.schools;
+
+    var onlines = education.onlineCourses;
+
+    var name, degree, dates, location, major, title, school, url;
+
+    formals.forEach(addFormalSchool);
+
+    $('#education').append(HTMLonlineClasses);
+
+    onlines.forEach(addOnlineCourse);
+
+
+    function addFormalSchool(school) {
+        name = HTMLschoolName.replace('%data%', school.name);
+        degree = HTMLschoolDegree.replace('%data%', school.degree);
+        dates = HTMLschoolDates.replace('%data%', school.dates);
+        location = HTMLschoolLocation.replace('%data%', school.location);
+        major = HTMLschoolMajor.replace('%data%', school.major);
+
+        $('#education').append(HTMLschoolStart);
+
+        $('.education-entry:last').append(name + degree);
+
+        $('.education-entry:last').append(dates);
+
+        $('.education-entry:last').append(location);
+
+        $('.education-entry:last').append(major);
+    }
+
+
+    function addOnlineCourse(course) {
+        title = HTMLonlineTitle.replace('%data%', course.title);
+        school = HTMLonlineSchool.replace('%data%', course.school);
+        dates = HTMLonlineDates.replace('%data%', course.dates);
+        url = HTMLonlineURL.replace('%data%', course.url);
+
+        $('#education').append(HTMLschoolStart);
+
+        $('.education-entry:last').append(title + school);
+
+        $('.education-entry:last').append(dates);
+
+        $('.education-entry:last').append(url);
+    }
+};
