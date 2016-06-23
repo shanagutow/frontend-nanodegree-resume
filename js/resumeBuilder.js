@@ -24,6 +24,7 @@ var bio = {
 
         $("#header").prepend(formattedName, formattedRole);
         $("#topContacts").append(pic, formattedWelcomeMessage, cell, eMail, gitHub, twitterName, local);
+        $("#footerContacts").append(cell, eMail, gitHub, twitterName, local);
 
         $("#header").append(HTMLskillsStart);
         bio.skills.forEach(function(skill) {
