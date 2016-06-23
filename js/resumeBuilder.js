@@ -12,36 +12,26 @@ var bio = {
     "skills": ["Cool ", "Fun ", "With-it ", "MOM!"],
     "biopic": 'images/mosh.JPG',
     display: function() {
+        var formattedName = HTMLheaderName.replace("%data%", bio.name);
+        var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+        var pic = HTMLbioPic.replace("%data%", bio.biopic);
+        var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+        var cell = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        var eMail = HTMLemail.replace("%data%", bio.contacts.email);
+        var gitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+        var twitterName = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+        var local = HTMLlocation.replace("%data%", bio.contacts.location);
 
-        for (var parts in bio){
-            console.log(parts);
-            var formattedName = HTMLheaderName.replace("%data%", bio.name);
-            var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-            var pic = HTMLbioPic.replace("%data%", bio.biopic);
-            var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-            var cell = HTMLmobile.replace("%data%", bio.contacts.mobile);
-            var eMail = HTMLemail.replace("%data%", bio.contacts.email);
-            var gitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-            var twitterName = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-            var local = HTMLlocation.replace("%data%", bio.contacts.location);
+        $("#header").prepend(formattedName, formattedRole);
+        $("#topContacts").append(pic, formattedWelcomeMessage, cell, eMail, gitHub, twitterName, local);
 
-            $("#header").prepend(formattedName, formattedRole);
-            $("#topContacts").append(pic, formattedWelcomeMessage, cell, eMail, gitHub, twitterName, local);
-
-            /*bio.skills.forEach(function(skill) {
-                // console.log("skill: ", skill);
-                $("#header").append(HTMLskillsStart);
-                var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-                $("#skills").append(formattedSkill);
-                formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-                $("#skills").append(formattedSkill);
-                formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-                $("#skills").append(formattedSkill);
-                formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-                $("#skills").append(formattedSkill);
-                                                    });*/
-                                }
-                            }
+        $("#header").append(HTMLskillsStart);
+        bio.skills.forEach(function(skill) {
+            console.log("skill: ", skill);
+            var formattedSkill = HTMLskills.replace("%data%", skill);
+            $("#skills").append(formattedSkill);
+                                            });
+                        }
 }
 bio.display();
 /*
