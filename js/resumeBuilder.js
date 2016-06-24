@@ -96,10 +96,7 @@ display: function() {
                                             });
     }
 }
-bio.display();
-education.display();
-/*
-// This data structure is specified for the project:
+
 var work = {
     jobs: [
         {
@@ -112,37 +109,22 @@ var work = {
     ],
     display: function() {
 
-         for (var job in work) {
-
-            console.log(work);
-                $("#workExperience").append(HTMLworkStart);
-                //employer name and title-- making the variables and replacing the "%data%".
-                var formattedEmployer = HTMLworkEmployer.replace("%data%", work[job][0].employer);
-                var formattedTitle = HTMLworkTitle.replace("%data%", work[job][0].title);
-                var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-                //employer name and title-- .appending it to the screen
-                $(".work-entry:last").append(formattedEmployerTitle);
-
-                //Location -- making the variables and replacing the "%data%".
-                var formattedLocation = HTMLworkLocation.replace("%data%", work[job][0].location);
-                    //location -- .appending it to the screen
-                $(".work-entry:last").append(formattedLocation);
-                //begin dates of the job-- making the variables and replacing the "%data%".
-                var formattedStartDate = HTMLworkDates.replace("%data%", work[job][0].dates);
-                //location -- .appending it to the screen
-                $(".work-entry:last").append(formattedStartDate);
-                //description -- making the variables and replacing the "%data%".
-                var formattedDescription = HTMLworkDescription.replace("%data%", work[job][0].description);
-                    //description -- .appending it to the screen
-                $(".work-entry:last").append(formattedDescription);
-            }
-
-
-    }
-};
-
+        //loops through Wor and displays them
+        $("#workExperience").append(HTMLworkStart);
+        work.jobs.forEach(function(job) {
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+            var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+            var formattedStartDate = HTMLworkDates.replace("%data%", job.dates);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+            $(".work-entry").append(formattedEmployer, formattedTitle, formattedLocation, formattedStartDate, formattedDescription);
+                                        });
+}
+}
+bio.display();
+education.display();
 work.display();
+/*
 // This data structure is specified for the project:
 var projects = {
     projects: [
