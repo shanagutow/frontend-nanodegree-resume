@@ -109,7 +109,7 @@ var work = {
     ],
     display: function() {
 
-        //loops through Wor and displays them
+        //loops through Work and displays them
         $("#workExperience").append(HTMLworkStart);
         work.jobs.forEach(function(job) {
             var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
@@ -121,10 +121,7 @@ var work = {
                                         });
 }
 }
-bio.display();
-education.display();
-work.display();
-/*
+
 // This data structure is specified for the project:
 var projects = {
     projects: [
@@ -136,36 +133,23 @@ var projects = {
         }
     ],
     display: function() {
-    for (var project in projects) {
-
+        //loops through projects and displays them
         $("#projects").append(HTMLprojectStart);
-        //replace the blank title with the project title
-        var formattedProTitle = HTMLprojectTitle.replace("%data%", projects[project][0].projectTitle);
-        $(".project-entry:last").append(formattedProTitle);
-        //replace the blank date with the project date
-        var formattedProDates = HTMLprojectDates.replace("%data%", projects[project][0].projectDates);
-        $(".project-entry:last").append(formattedProDates);
-        //replace the blank description with the project description
-        var formattedProDescription = HTMLprojectTitle.replace("%data%", projects[project][0].projectDescription);
-        $(".project-entry:last").append(formattedProDescription);
-        //going through the inner-object projectImages and making a for loop for all the pictures in the inner object.
-        //console.log(projects[project][0].projectImages);
-        for (var image in projects[project][0].projectImages) {
-
-            //if the feild has a length of >0 then replace HTMLprojectImage with formattedImage.
-            if (projects[project][0].projectImages[image].length > 0) {
-
-                var formattedProImage = HTMLprojectImage.replace("%data%", projects[project][0].projectImages[image]);
-                $(".project-entry:last").append(formattedProImage);
-
-            }
-
-        }
-    }}
+        projects.projects.forEach(function(pro) {
+            var formattedProTitle = HTMLprojectTitle.replace("%data%", pro.title);
+            var formattedProDates = HTMLprojectDates.replace("%data%", pro.dates);
+            var formattedProDescription = HTMLprojectDescription.replace("%data%", pro.description);
+            var formattedProImages = HTMLprojectImage.replace("%data%", pro.images);
+            $(".project-entry").append(formattedProTitle, formattedProDates, formattedProDescription, formattedProImages);
+                                        });
+    }
 };
-projects.display();
 
 var googleMap;
 $("#mapDiv").append(googleMap);
 console.log(googleMap);
-*/
+
+bio.display();
+education.display();
+work.display();
+projects.display();
