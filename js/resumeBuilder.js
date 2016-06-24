@@ -28,14 +28,11 @@ var bio = {
 
         $("#header").append(HTMLskillsStart);
         bio.skills.forEach(function(skill) {
-            console.log("skill: ", skill);
             var formattedSkill = HTMLskills.replace("%data%", skill);
             $("#skills").append(formattedSkill);
                                             });
                         }
 }
-bio.display();
-/*
 // This data structure is specified for the project:
 var education = {
     schools: [
@@ -76,11 +73,27 @@ var education = {
     ],
 
 display: function() {
+       //HTMLschoolStart is to set up that part of the page not to add any info just where the info goes :)
+        //var formattedSchStart = HTMLschoolStart.replace("%data%", education.name);
 
-        var formattedSchName = HTMLschoolName.replace("%data%", education.name);
-        var formattedSchDegree = HTMLschoolDegree.replace("%data%", education.degree);
+        //var formattedOnSchClasses = HTMLonlineClasses.replace("%data%", education.majors);
+        var formattedOnSchTitle = HTMLonlineTitle.replace("%data%", education.majors);
+        var formattedOnSchSchool = HTMLonlineSchool.replace("%data%", education.majors);
+        var formattedOnSchDates = HTMLonlineDates.replace("%data%", education.majors);
+        var formattedOnSchUrl = HTMLonlineURL.replace("%data%", education.majors);
+
+        $("#education").append(HTMLschoolStart);
+        education.schools.forEach(function(school) {
+            console.log("school: ", school);
+            var formattedSchName = HTMLschoolName.replace("%data%", school.name);
+            var formattedSchDegree = HTMLschoolDegree.replace("%data%", school.degree);
+            var formattedSchDates = HTMLschoolDates.replace("%data%", school.dates);
+            var formattedSchLocation = HTMLschoolLocation.replace("%data%", school.location);
+            var formattedSchMajor = HTMLschoolMajor.replace("%data%", school.majors);
+            $(".education-entry").append(formattedSchName, formattedSchDegree, formattedSchDates, formattedSchLocation, formattedSchMajor);
+                                            });
             //here instead of each getting appened by themselves and having the placement off, append together
-        $(".education-entry:last").append(formattedSchName + formattedSchDegree);
+        /*$(".education-entry:last").append(formattedSchName + formattedSchDegree);
 
         $("education").append(HTMLonlineClasses);
 
@@ -101,9 +114,12 @@ display: function() {
         var formattedonlineURL = HTMLonlineURL.replace("%data%", online.onlineClasses[classType].onlineURL);
         $(".education-entry:last").append(formattedonlineURL + "<hr>");
     }
+    */
     }
 }
+bio.display();
 education.display();
+/*
 // This data structure is specified for the project:
 var work = {
     jobs: [
