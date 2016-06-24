@@ -147,7 +147,6 @@ var projects = {
 
 var googleMap;
 $("#mapDiv").append(googleMap);
-console.log(googleMap);
 
 bio.display();
 education.display();
