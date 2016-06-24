@@ -33,7 +33,7 @@ var bio = {
             $("#skills").append(formattedSkill);
                                             });
                         }
-}
+};
 // This data structure is specified for the project:
 var education = {
     schools: [
@@ -41,7 +41,7 @@ var education = {
             name: 'Thomas Edison',
             location: 'New Jersey',
             degree: 'BA',
-            majors: 'Lib Arts',
+            majors: ['Lib Arts'],
             dates: '2012-2013',
             url: 'www.tesu.edu/'
         },
@@ -81,7 +81,11 @@ display: function() {
             var formattedSchDegree = HTMLschoolDegree.replace("%data%", school.degree);
             var formattedSchDates = HTMLschoolDates.replace("%data%", school.dates);
             var formattedSchLocation = HTMLschoolLocation.replace("%data%", school.location);
-            var formattedSchMajor = HTMLschoolMajor.replace("%data%", school.majors);
+            var formattedSchMajor = "";
+
+            school.majors.forEach(function(major) {
+                formattedSchMajor += HTMLschoolMajor.replace("%data%", major);
+                                            });
             $(".education-entry").append(formattedSchName, formattedSchDegree, formattedSchDates, formattedSchLocation, formattedSchMajor);
                                             });
         //loops through online courses and displays them
@@ -120,7 +124,7 @@ var work = {
             $(".work-entry").append(formattedEmployer, formattedTitle, formattedLocation, formattedStartDate, formattedDescription);
                                         });
 }
-}
+};
 
 // This data structure is specified for the project:
 var projects = {
