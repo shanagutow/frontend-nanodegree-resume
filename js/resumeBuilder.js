@@ -86,7 +86,7 @@ display: function() {
             school.majors.forEach(function(major) {
                 formattedSchMajor += HTMLschoolMajor.replace("%data%", major);
                                             });
-            $(".education-entry").append(formattedSchName, formattedSchDegree, formattedSchDates, formattedSchLocation, formattedSchMajor);
+            $(".education-entry").append(formattedSchName + formattedSchDegree, formattedSchDates, formattedSchLocation, formattedSchMajor);
                                             });
         //loops through online courses and displays them
         $(".education-entry").append(HTMLonlineClasses);
@@ -96,7 +96,7 @@ display: function() {
             var formattedOnSchSchool = HTMLonlineSchool.replace("%data%", course.school);
             var formattedOnSchDates = HTMLonlineDates.replace("%data%", course.date);
             var formattedOnSchUrl = HTMLonlineURL.replace("%data%", course.url);
-            $(".education-entry").append(formattedOnSchTitle, formattedOnSchSchool, formattedOnSchDates, formattedOnSchUrl);
+            $(".education-entry:last").append(formattedOnSchTitle + formattedOnSchSchool, formattedOnSchDates, formattedOnSchUrl);
                                             });
     }
 }
@@ -121,7 +121,7 @@ var work = {
             var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
             var formattedStartDate = HTMLworkDates.replace("%data%", job.dates);
             var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-            $(".work-entry").append(formattedEmployer, formattedTitle, formattedLocation, formattedStartDate, formattedDescription);
+            $(".work-entry").append(formattedEmployer + formattedTitle, formattedLocation, formattedStartDate, formattedDescription);
                                         });
 }
 };
@@ -133,7 +133,7 @@ var projects = {
             title: 'Portfolio Project',
             dates: '2015-2016',
             description: 'HTML and CSS project',
-            images:"images/HTML_and_CSS_project_pic.png"
+            images:['images/HTML_and_CSS_project_pic.png']
         }
     ],
     display: function() {
@@ -143,12 +143,24 @@ var projects = {
             var formattedProTitle = HTMLprojectTitle.replace("%data%", pro.title);
             var formattedProDates = HTMLprojectDates.replace("%data%", pro.dates);
             var formattedProDescription = HTMLprojectDescription.replace("%data%", pro.description);
-            var formattedProImages = HTMLprojectImage.replace("%data%", pro.images);
+            var formattedProImages = "";
+
+            pro.images.forEach(function(proj) {
+                formattedProImages += HTMLprojectImage.replace("%data%", proj);
+                                            });
+
+
             $(".project-entry").append(formattedProTitle, formattedProDates, formattedProDescription, formattedProImages);
                                         });
     }
 };
+/*
+var formattedSchMajor = "";
 
+            school.majors.forEach(function(major) {
+                formattedSchMajor += HTMLschoolMajor.replace("%data%", major);
+                                            });
+*/
 var googleMap;
 $("#mapDiv").append(googleMap);
 
